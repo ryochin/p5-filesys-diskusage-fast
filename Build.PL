@@ -10,9 +10,8 @@ my $builder = Module::Build->new(
     include_dirs        => ['.'],
     build_requires => {
         'Scalar::Util' => 0,
-    },
-    requires => {
-        'Test::More' => 0,
+	'Test::More' => 0,
+	'Test::LeakTrace' => 0,
     },
     add_to_cleanup      => [ 'Filesys-DiskUsage-Fast-*' ],
 );
