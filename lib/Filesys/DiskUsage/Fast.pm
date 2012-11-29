@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use vars qw($VERSION @ISA %EXPORT_TAGS @EXPORT_OK);
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 require Exporter;
 @ISA = qw(Exporter);
@@ -56,10 +56,13 @@ Returns total byte number contained in directories specified.
 
 =over 4
 
-=item B<$Filesys::DiskUsage::Fast::ShowWarnings>
+=item B<$ShowWarnings>
 
 If true, errors will be warn()ed. Default is true.
 Set false to suppress warnings (not found, permission denied etc).
+
+  local $Filesys::DiskUsage::Fast::ShowWarnings = 0;
+  du(...);
 
 =back
 
@@ -73,12 +76,11 @@ tested on a directory contains around 11GB 3300+ files, CentOS 5 (HDD).
 
 =head1 CAVEAT
 
-  All symbolic links always result 0 byte.
-  Block, FIFO and other special files may not be counted accurately.
+All symbolic links always result 0 byte. Block, FIFO and other special files may not be counted accurately.
 
 =head1 DEPENDENCY
 
-None.
+None
 
 =head1 SEE ALSO
 
