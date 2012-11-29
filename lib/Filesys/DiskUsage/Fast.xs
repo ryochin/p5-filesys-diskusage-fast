@@ -50,6 +50,9 @@ void get_dir_size( char *dirname ){
 	char newfile[MAXPATHLEN];
 	unsigned long long count = 0;
 	char cwd[MAXPATHLEN];
+#if defined (__SVR4) && defined (__sun)
+	struct stat s;
+#endif
 	
 	// open dir
 	if( ( dir = opendir( dirname ) ) == NULL ){
@@ -68,7 +71,12 @@ void get_dir_size( char *dirname ){
 	}
 	
 	for( dp = readdir( dir ); dp != NULL; dp = readdir( dir ) ){
+#if defined (__SVR4) && defined (__sun)
+		stat( dp->d_name, &s );
+		if( S_ISDIR( s.st_mode ) ){
+#else
 		if( dp->d_type == DT_DIR ){
+#endif
 			// dir
 			
 			// omit . and ..
