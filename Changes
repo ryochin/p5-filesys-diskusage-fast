@@ -1,5 +1,10 @@
 Revision history for Filesys-DiskUsage-Fast
 
-0.01    Sun Sep 30 21:04:47 JST 2012
+0.02	Thu Nov 29 17:43:40 UTC 2012
+	* added memory leak test using Test::LeakTrace.
+	* updated Build.PL for cpan/cpantesters.
+	* fixed a compatibility issue on OpenSolaris.
+
+0.01    Sun Sep 30 12:04:47 UTC 2012
 	* first release.
 
