@@ -23,3 +23,5 @@ xt/97_pod.t
 xt/98_pod-spelling.t
 xt/99_pod-coverage.t
 xt/perlcriticrc
+META.yml
+META.json
