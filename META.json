@@ -42,6 +42,8 @@
       },
       "develop" : {
          "requires" : {
+            "Filesys::DiskUsage" : "0",
+            "Number::Bytes::Human" : "0",
             "Test::CPAN::Meta" : "0",
             "Test::MinimumVersion" : "0.10108",
             "Test::Perl::Critic" : "0",

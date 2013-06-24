@@ -6,6 +6,9 @@ on build => sub {
 };
 
 on develop => sub {
+    requires 'Filesys::DiskUsage';
+    requires 'Number::Bytes::Human';
+
     requires 'Test::Strict';
     requires 'Test::Vars';
     requires 'Test::Synopsis';
