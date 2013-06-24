@@ -25,6 +25,8 @@ XSLoader::load('Filesys::DiskUsage::Fast', $VERSION);
 
 __END__
 
+=encoding utf-8
+
 =head1 NAME
 
 Filesys::DiskUsage::Fast - A fast disk usage counter (du) with XS
@@ -77,9 +79,9 @@ Default value is 0, returns real occupied size.
 
 =head1 PERFORMANCE
 
-   s/iter   pp   xs
-pp   1.35   -- -85%
-xs  0.197 584%   --
+     s/iter   pp   xs
+  pp   1.35   -- -85%
+  xs  0.197 584%   --
 
 tested on a directory contains around 11GB 3300+ files, CentOS 5 (HDD).
 
@@ -101,11 +103,13 @@ https://github.com/ryochin/p5-filesys-diskusage-fast
 
 =head1 AUTHOR
 
-Ryo Okamoto, C<< <ryo at aquahill dot net> >>
+Ryo Okamoto E<lt>ryo@aquahill.netE<gt>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2012 Ryo Okamoto, All Rights Reserved.
+Copyright (c) Ryo Okamoto, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
+
+=cut
