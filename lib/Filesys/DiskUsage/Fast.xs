@@ -19,10 +19,12 @@ static char parent_dir[MAXPATHLEN] = "..";
 static unsigned long long total = 0;
 unsigned int debug = 0;
 unsigned int show_warnings = 1;
+unsigned int sector_size = 0;
 
 unsigned long long get_file_size( char *filename ){
 	struct stat stat_buf;
 	char cwd[MAXPATHLEN];
+	unsigned long long result;
 	
 	if( lstat( filename, &stat_buf ) == 0 ){
 		// ok
@@ -30,7 +32,17 @@ unsigned long long get_file_size( char *filename ){
 			return 0;
 		}
 		else{
-			return (unsigned long long)stat_buf.st_size;
+			if( sector_size > 1 ){
+				// sector
+				result = sector_size - 1 + (unsigned long long)stat_buf.st_size;
+				result -= result % sector_size;
+				
+				return result;
+			}
+			else{
+				// real
+				return (unsigned long long)stat_buf.st_size;
+			}
 		}
 	}
 	else{
@@ -129,6 +141,7 @@ du(...)
 			total = 0;
 			debug = SvTRUE(GvSV(gv_fetchpv(form("%s::Debug", PACKAGE_NAME), TRUE, SVt_PV))) ? 1 : 0;
 			show_warnings = SvTRUE(GvSV(gv_fetchpv(form("%s::ShowWarnings", PACKAGE_NAME), TRUE, SVt_PV))) ? 1 : 0;
+			sector_size = SvUV(GvSV(gv_fetchpv(form("%s::SectorSize", PACKAGE_NAME), TRUE, SVt_PV)));
 			
 			for( index = 0 ; index < items ; index++ ){
 				SV *stacksv = ST(index);

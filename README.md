@@ -33,6 +33,14 @@ A simple but fast disk usage counter implemented as XS module.
         local $Filesys::DiskUsage::Fast::ShowWarnings = 0;
         du(...);
 
+- __$SectorSize__
+
+    If > 0, the specified size is used to calculate the block size.
+    Default value is 0, returns real occupied size.
+
+        local $Filesys::DiskUsage::Fast::SectorSize = 4096;
+        du(...);
+
 # PERFORMANCE
 
     s/iter   pp   xs
