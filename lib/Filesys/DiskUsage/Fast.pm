@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use vars qw($VERSION @ISA %EXPORT_TAGS @EXPORT_OK);
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 require Exporter;
 @ISA = qw(Exporter);
@@ -16,6 +16,7 @@ require Exporter;
 
 $Filesys::DiskUsage::Fast::Debug = 0;
 $Filesys::DiskUsage::Fast::ShowWarnings = 1;
+$Filesys::DiskUsage::Fast::SectorSize = 0;
 
 require XSLoader;
 XSLoader::load('Filesys::DiskUsage::Fast', $VERSION);
@@ -62,6 +63,14 @@ If true, errors will be warn()ed. Default is true.
 Set false to suppress warnings (not found, permission denied etc).
 
   local $Filesys::DiskUsage::Fast::ShowWarnings = 0;
+  du(...);
+
+=item B<$SectorSize>
+
+If > 0, the specified size is used to calculate the block size.
+Default value is 0, returns real occupied size.
+
+  local $Filesys::DiskUsage::Fast::SectorSize = 4096;
   du(...);
 
 =back
