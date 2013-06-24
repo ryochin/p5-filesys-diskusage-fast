@@ -43,9 +43,9 @@ A simple but fast disk usage counter implemented as XS module.
 
 # PERFORMANCE
 
-    s/iter   pp   xs
- pp   1.35   -- -85%
- xs  0.197 584%   --
+       s/iter   pp   xs
+    pp   1.35   -- -85%
+    xs  0.197 584%   --
 
 tested on a directory contains around 11GB 3300+ files, CentOS 5 (HDD).
 
@@ -67,11 +67,11 @@ https://github.com/ryochin/p5-filesys-diskusage-fast
 
 # AUTHOR
 
-Ryo Okamoto, `<ryo at aquahill dot net>`
+Ryo Okamoto <ryo@aquahill.net>
 
 # COPYRIGHT & LICENSE
 
-Copyright 2012 Ryo Okamoto, All Rights Reserved.
+Copyright (c) Ryo Okamoto, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
