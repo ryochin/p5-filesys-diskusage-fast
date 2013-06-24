@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use vars qw($VERSION @ISA %EXPORT_TAGS @EXPORT_OK);
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 require Exporter;
 @ISA = qw(Exporter);
